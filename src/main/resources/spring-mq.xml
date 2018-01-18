@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+
+       default-lazy-init="false">
+
+    <!-- 队列服务机器配置 -->
+    <rabbit:connection-factory id="commonRabbit"
+                               host="172.31.105.109" port="5672"
+                               virtual-host="CALLBACK" username="CALLBACK"
+                               password="CALLBACK"/>
+
+    <rabbit:admin id="commonRabbitAdmin" connection-factory="commonRabbit"/>
+
+    <!-- 队列服务端 -->
+    <rabbit:queue name="CALLBACK.PROVIDER.TASK.TEST" declared-by="commonRabbitAdmin"></rabbit:queue>
+
+
+    <rabbit:direct-exchange name="open" declared-by="commonRabbitAdmin">
+        <rabbit:bindings>
+            <rabbit:binding queue="CALLBACK.PROVIDER.TASK.TEST" key="CALLBACK.PROVIDER.TASK.N1"></rabbit:binding>
+
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:template id="openRabbitTemplate" connection-factory="commonRabbit" exchange="open"/>
+
+    <!-- 队列客户端 -->
+
+    <rabbit:admin connection-factory="commonRabbit"/>
+
+    <rabbit:queue name="CALLBACK.PROVIDER.TASK.TEST"></rabbit:queue>
+
+
+    <bean id="rabbitTemplate" class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+        <constructor-arg ref="commonRabbit"></constructor-arg>
+    </bean>
+
+    <bean id="testListener" class="com.facishare.test.listener.TestListener"></bean>
+    <rabbit:listener-container connection-factory="commonRabbit" acknowledge="auto">
+        <rabbit:listener queues="CALLBACK.PROVIDER.TASK.TEST" ref="testListener" method="handMessage"/>
+    </rabbit:listener-container>
+
+
+</beans>
