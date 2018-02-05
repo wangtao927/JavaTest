@@ -1,41 +1,43 @@
 package com.sunshine.netty;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.*;
+
+import java.net.InetAddress;
+import java.util.Date;
 
 /**
  * Created by wangtao on 2017/3/6.
  */
-public class TimeServerHandler extends ChannelInboundHandlerAdapter {
+public class TimeServerHandler extends SimpleChannelInboundHandler<String> {
 
+    private int counter;
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ByteBuf time = ctx.alloc().buffer(4);
+        // Send greeting for a new connection.
+        ctx.write("Welcome to " + InetAddress.getLocalHost().getHostName() + "!\r\n");
+        ctx.write("It is " + new Date() + " now.\r\n");
+        ctx.flush();
+    }
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
 
-        time.writeInt((int)(System.currentTimeMillis()/1000L));
-        ChannelFuture f = ctx.writeAndFlush(time);
+        System.out.println("server receive:" + msg + "; the counter is " + counter++);
+        ChannelFuture future = ctx.write("receive body:" + msg);
 
-        f.addListener(new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future) throws Exception {
-                assert f == future;
-                ctx.close();
-            }
-        });
-
-
+        // Close the connection after sending 'Have a good day!'
+        // if the client has sent 'bye'.
+        if (msg.equals("bye")) {
+            future.addListener(ChannelFutureListener.CLOSE);
+        }
     }
 
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 
-//    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//        //        ctx.fireChannelRead(msg);
-////        ((ByteBuf) msg).release();
-//        ctx.write(msg); // (1)
-//        ctx.flush(); // (2)
-//    }
+        ctx.flush();
+    }
 
 
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
