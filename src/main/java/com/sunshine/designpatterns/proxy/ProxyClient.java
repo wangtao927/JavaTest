@@ -1,6 +1,4 @@
-package com.sunshine.proxy;
-
-import cn.hutool.aop.ProxyUtil;
+package com.sunshine.designpatterns.proxy;
 
 import java.lang.reflect.Proxy;
 
@@ -15,7 +13,8 @@ public class ProxyClient {
         MyJdkProxyHandler proxyHandler = new MyJdkProxyHandler(gamePlayer);
 
         ClassLoader loader = gamePlayer.getClass().getClassLoader();
-        IGamePlayer proxyPlayer = (IGamePlayer) Proxy.newProxyInstance(loader, new Class[]{IGamePlayer.class}, proxyHandler);
+        IGamePlayer
+            proxyPlayer = (IGamePlayer) Proxy.newProxyInstance(loader, new Class[]{IGamePlayer.class}, proxyHandler);
         proxyPlayer.online("wangt");
         proxyPlayer.play("wangt");
     }

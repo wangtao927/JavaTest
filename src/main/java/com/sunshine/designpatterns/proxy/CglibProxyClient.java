@@ -1,4 +1,4 @@
-package com.sunshine.proxy;
+package com.sunshine.designpatterns.proxy;
 
 /**
  * Created by wangtao on 2018/1/23.
