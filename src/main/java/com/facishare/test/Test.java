@@ -79,6 +79,8 @@ public class Test {
 //        // another methed to push message
 //        openRabbitTemplate.convertAndSend("CALLBACK.PROVIDER.TASK.TEST", "send into queue");
 //        System.out.println("send info into queue");
+
+
     }
 
 }
