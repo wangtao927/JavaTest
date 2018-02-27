@@ -9,8 +9,12 @@ public interface IGamePlayer {
 
     void play(String name);
 
-    void upgrade(String name, int level);
+    default void upgrade(String name, int level) {
+        System.out.println("default--- name: " + name + " level:" + level);
+    }
 
     void offline(String name);
+
+
 
 }
