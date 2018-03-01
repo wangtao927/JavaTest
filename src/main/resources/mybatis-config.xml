@@ -32,7 +32,8 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="mybatis/EmailMapper.xml"/>
+		<!--<mapper resource="mybatis/EmailMapper.xml"/>-->
+		<package name="com.sunshine.mybatis"></package>
 	</mappers>
 
 </configuration>

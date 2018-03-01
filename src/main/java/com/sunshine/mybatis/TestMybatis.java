@@ -25,6 +25,8 @@ public class TestMybatis {
             EmailMapper mapper = session.getMapper(EmailMapper.class);
             Email email = mapper.selectEmail(2);
             System.out.println(email);
+            email = mapper.selectEmail(3);
+            System.out.println(email);
         } finally {
             session.close();
         }
