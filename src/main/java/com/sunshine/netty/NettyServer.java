@@ -8,6 +8,11 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.Delimiters;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 /**
  * Created by wangtao on 2017/3/6.
@@ -34,7 +39,11 @@ public class NettyServer {
 
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                         ch.pipeline().addLast(new TimeServerHandler());
+                         ch.pipeline()
+                         .addLast(new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()))
+                         .addLast(new StringDecoder())
+                         .addLast(new StringEncoder())
+                         .addLast(new TimeServerHandler());
                     }
                 })
                 .option(ChannelOption.SO_BACKLOG, 128)
@@ -44,6 +53,7 @@ public class NettyServer {
 
             future.channel().closeFuture().sync();
 
+            System.out.println("server 启动成功");
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
