@@ -20,7 +20,6 @@
         <!--基础组件-->
         <aspectj.version>1.8.7</aspectj.version>
         <cglib.version>2.2.2</cglib.version>
-        <fs-fsi-proxy.version>1.3-SNAPSHOT</fs-fsi-proxy.version>
         <httpclient.version>4.5.1</httpclient.version>
         <httpcore.version>4.4.3</httpcore.version>
         <httpmime.version>4.5.1</httpmime.version>
@@ -86,10 +85,6 @@
         <servlet-api.version>2.5</servlet-api.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <jutil.version>1.0.0-SNAPSHOT</jutil.version>
-        <!--fs-open业务组件-->
-        <common-storage.version>0.0.1</common-storage.version>
-        <common-result.version>0.0.6</common-result.version>
-        <war.name>fs-open</war.name>
         <webApp.contextPath/>
     </properties>
     <dependencies>
@@ -330,29 +325,6 @@
             <groupId>com.dangdang</groupId>
             <artifactId>sharding-jdbc-core</artifactId>
             <version>1.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.facishare.open</groupId>
-            <artifactId>fs-open-app-center-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.facishare.open</groupId>
-            <artifactId>fs-open-app-pay-api</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.facishare.open</groupId>
-            <artifactId>fs-pay-common</artifactId>
-            <version>0.0.4-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.facishare.open</groupId>
-            <artifactId>fs-pay-common</artifactId>
-            <version>0.0.5-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
