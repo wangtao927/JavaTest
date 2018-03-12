@@ -5,8 +5,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Frequency {
-    private long maxCount;
-    private int limit;
+    private long maxCount; // 单位时间最大访问数
+    private int limit; // 时间段
     private AtomicLong num;
     private volatile long countTime;
     private volatile long slowTime;

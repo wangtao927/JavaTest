@@ -5,7 +5,9 @@ package com.sunshine.designpatterns.template;
  */
 public abstract class Pay {
 
-    String createOrder(){return null;}
+    String createOrder(){
+        return null;
+    }
 
     String pay() {
         createOrder();
@@ -14,7 +16,9 @@ public abstract class Pay {
         return "success";
     }
 
-    String updateOrder(){return null;}
+    String updateOrder(){
+        return null;
+    }
 
 
     String updateBalance() {

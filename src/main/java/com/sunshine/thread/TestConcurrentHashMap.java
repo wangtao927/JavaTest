@@ -31,11 +31,11 @@ public class TestConcurrentHashMap {
         throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException {
 //        ConcurrentHashMap hashMap = new ConcurrentHashMap();
 //         hashMap.put("1", "1");
-        System.out.println(spread("15".hashCode()) + "__" + spread0("15".hashCode()));
-        System.out.println(spread("16".hashCode()) + "__" + spread0("16".hashCode()));
-        System.out.println(spread("17".hashCode()) + "__" + spread0("17".hashCode()));
-        System.out.println(spread("18".hashCode()) + "__" + spread0("18".hashCode()));
-
+//        System.out.println(spread("15".hashCode()) + "__" + spread0("15".hashCode()));
+//        System.out.println(spread("16".hashCode()) + "__" + spread0("16".hashCode()));
+//        System.out.println(spread("17".hashCode()) + "__" + spread0("17".hashCode()));
+//        System.out.println(spread("18".hashCode()) + "__" + spread0("18".hashCode()));
+         new TestConcurrentHashMap().putValus("1", "1");
 //        Class clazz = Class.forName("java.util.concurrent.ConcurrentHashMap");
 //        ConcurrentHashMap concurrentHashMap = (ConcurrentHashMap) clazz.newInstance();
 //        concurrentHashMap.put("11", "11");
