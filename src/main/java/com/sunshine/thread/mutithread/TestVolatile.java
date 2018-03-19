@@ -8,8 +8,12 @@ import java.util.concurrent.Executors;
  */
 public class TestVolatile {
 
+    int k = 1;
+    int k1 = 2;
     volatile int i = 0;
-//    int i = 0;
+    int j = 0;
+    int j1 = 1;
+
 
     public void setVolatile() {
         i++;

@@ -1,5 +1,6 @@
 package com.sunshine.map;
 
+import java.util.HashMap;
 import java.util.TreeMap;
 
 /**
@@ -11,6 +12,7 @@ public class TestTreeMap {
         TreeMap<String, String> treeMap = new TreeMap();
         treeMap.put("1","1");
         treeMap.put("2","2");
+
 
     }
 }
