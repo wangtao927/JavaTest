@@ -1,7 +1,6 @@
 package com.sunshine.map;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 /**
  * Created by wangtao on 2018/3/13.
@@ -13,8 +12,12 @@ public class TestHashMap {
 
         hashMap.put("1", "");
         hashMap.put("2", "");
-        hashMap.put(Integer.parseInt("1111", 10), "");
-        hashMap.put(Integer.parseInt("0111", 10), "");
+        hashMap.put(Integer.parseInt("1111", 2), "");
+        hashMap.put(Integer.parseInt("0000000000000111", 2), "");
+        hashMap.put(Integer.parseInt("0000000000000111", 2), "");
+
+        System.out.println(Integer.parseInt("7fffffff", 16));
+
     }
 
 }

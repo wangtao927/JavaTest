@@ -16,13 +16,9 @@ public abstract class Pay {
         return "success";
     }
 
-    String updateOrder(){
-        return null;
-    }
+    abstract  String updateOrder();
 
 
-    String updateBalance() {
-        return null;
-    }
+    abstract  String updateBalance();
 
 }
