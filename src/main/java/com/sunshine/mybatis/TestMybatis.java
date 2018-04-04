@@ -23,6 +23,7 @@ public class TestMybatis {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             EmailMapper mapper = session.getMapper(EmailMapper.class);
+
             Email email = mapper.selectEmail(2);
             System.out.println(email);
             email = mapper.selectEmail(3);

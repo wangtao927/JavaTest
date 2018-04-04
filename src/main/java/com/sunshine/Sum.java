@@ -14,6 +14,19 @@ public class Sum {
     }
 
 
+    public static void main(String[] args) {
+
+        retry:
+        for (int i = 0; i < 10; i++) {
+
+            System.out.println("t_" + i);
+            if( i == 5) {
+                break ;
+            }
+            System.out.println(i);
+        }
+
+    }
 
 
 }
