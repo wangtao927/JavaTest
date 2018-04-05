@@ -12,6 +12,9 @@ public class TestHashMap {
 
         hashMap.put("1", "");
         hashMap.put("2", "");
+        for (int i = 0; i < 15; i++) {
+            hashMap.put("test"+i, i);
+        }
         hashMap.put(Integer.parseInt("1111", 2), "");
         hashMap.put(Integer.parseInt("0000000000000111", 2), "");
         hashMap.put(Integer.parseInt("0000000000000111", 2), "");
