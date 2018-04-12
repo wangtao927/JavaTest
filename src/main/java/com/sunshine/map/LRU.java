@@ -17,7 +17,7 @@ public class LRU<K, V> {
 
     public void put(K key, V value) {
 
-        linkedHashMap
+        linkedHashMap.put(key, value);
 
     }
 
