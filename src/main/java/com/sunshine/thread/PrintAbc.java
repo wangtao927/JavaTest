@@ -9,7 +9,6 @@ public class PrintAbc {
     public static void main(String[] args) throws InterruptedException {
         PrintAbc a = new PrintAbc();
 
-
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
