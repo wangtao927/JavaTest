@@ -10,6 +10,7 @@ public class TestHashMap {
     public static void main(String[] args) {
         HashMap hashMap = new HashMap();
 
+        hashMap.put(null, "1");
         for (int i = 0; i < 10; i++) {
             hashMap.put("test" + i, i);
         }
