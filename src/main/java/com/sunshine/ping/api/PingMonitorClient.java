@@ -45,11 +45,7 @@ public final class PingMonitorClient {
      * 根据不同环境获取不同配置url路径
      */
     private String getUrl() {
-//        String hostname = CmsResolver.getHostName();
-//        if (hostname.endsWith("foneshare.cn") || "foneshare".equals(System.getenv("ENVIRONMENT_TYPE"))/*k8s*/) {
-//            return "http://oss.foneshare.cn/ping-monitor";
-//        }
-        return "http://oss.firstshare.cn/ping-monitor";
+        return "http://xxxxx/ping-monitor";
     }
 
     /**
