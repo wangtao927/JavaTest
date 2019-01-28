@@ -29,5 +29,6 @@ public class TestBigDecimal {
         System.out.println(num.testBit(8));
 
 
+
     }
 }

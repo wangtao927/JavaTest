@@ -13,6 +13,7 @@ public class ZkClientTest {
         String result = client.create("/test1", "t", CreateMode.PERSISTENT);
         System.out.println("create result:" + result);
 
+
 //        boolean delResult = client.delete("/test");
 //        boolean delResult1 = client.delete("/test1");
 //        System.out.println("delete result:" + delResult);
