@@ -7,12 +7,11 @@ import org.apache.curator.retry.RetryOneTime;
 
 public class CuratorClientTest {
 
-    private static String ip = "xxxx:2181,xxxx:2182,xxxx:2183";
+    private static String ip = "192.168.99.100:32771,192.168.99.100:32770,192.168.99.100:32769";
 
     public static void main(String[] args) {
         CuratorZookeeperClient zkClient = CuratorFrameworkFactory.newClient(ip, new RetryOneTime(1000))
                 .getZookeeperClient();
-
 
 
     }
