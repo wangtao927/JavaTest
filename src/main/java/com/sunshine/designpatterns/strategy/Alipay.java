@@ -1,6 +1,5 @@
 package com.sunshine.designpatterns.strategy;
 
-import groovyjarjarantlr.PythonCharFormatter;
 
 /**
  * Created by wangtao on 2018/2/22.

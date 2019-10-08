@@ -12,8 +12,7 @@ import java.util.Date;
 public class Email implements Serializable {
 
     private Long id;
-    private String fsUserId;
-    private String fsCorpId;
+    private String userId;
     private int status;
     private boolean receiveSsl;
     private boolean sendSsl;
@@ -25,9 +24,6 @@ public class Email implements Serializable {
     private Date createTime;
     private Date updateTime;
     private String signature;
-    private String webSignature;
-    private String nickname;
-    private boolean bindFirst;
 
     private String phone;
 }

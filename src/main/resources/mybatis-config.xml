@@ -25,9 +25,9 @@
 			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://10.113.22.6:3306/open_email_proxy"/>
-				<property name="username" value="emailproxy_adm"/>
-				<property name="password" value="x1woVtqF"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/test"/>
+				<property name="username" value="test"/>
+				<property name="password" value="test"/>
 			</dataSource>
 		</environment>
 	</environments>

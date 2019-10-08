@@ -1,5 +1,6 @@
 package com.sunshine.mybatis;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -13,6 +14,10 @@ public interface EmailMapper {
     @Select ("SELECT * FROM email WHERE id = #{id}")
     Email selectEmail(int id);
 
-    @Select("select * from email limit 1")
+    @Select("select * from email limit 10")
     List<Email> selectList();
+
+    @Insert("insert into email (user_id, status, phone, account, password, email_type) " +
+            "values(#{userId}, #{status}, #{phone}, #{account}, #{password}, #{emailType})")
+    int insertEmail(Email email);
 }

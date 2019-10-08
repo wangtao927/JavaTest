@@ -32,4 +32,12 @@ public class ThreadPoolTest {
         System.out.println("end");
 
     }
+
+    public void testWorkStealPool() {
+        ExecutorService executorService = Executors.newWorkStealingPool();
+
+        executorService.execute(()->{
+            System.out.println("test");
+        });
+    }
 }
