@@ -7,7 +7,7 @@ public class TestThreadLocal {
 
     private static ThreadLocal<String> local = new ThreadLocal<>();
 
-    static String tmp;
+    static int tmp;
 
     public static void main(String[] args) {
 
@@ -18,7 +18,8 @@ public class TestThreadLocal {
                 @Override
                 public void run() {
 
-                    local.set(tmp+=5);
+
+                    local.set(String.valueOf(tmp=tmp+5));
                     System.out.println(local.get() +"tmp:" + tmp);
                 }
             }).start();
