@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -18,7 +19,10 @@ public class TestMybatis {
     public static void main(String[] args) throws IOException {
         TestMybatis testMybatis = new TestMybatis();
         String resource = "mybatis-config.xml";
+//        InputStream inputStream = new FileInputStream(resource);
+//        InputStream inputStream = TestMybatis.class.getClassLoader().getResourceAsStream(resource);
         InputStream inputStream = Resources.getResourceAsStream(resource);
+
         SqlSessionFactory sqlSessionFactory =
                 new SqlSessionFactoryBuilder().build(inputStream);
 

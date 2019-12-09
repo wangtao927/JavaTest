@@ -6,7 +6,7 @@
 
     <groupId>com.sunshine</groupId>
     <artifactId>mytest</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -329,11 +329,11 @@
             <version>${spring-framework.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.dangdang</groupId>-->
-            <!--<artifactId>sharding-jdbc</artifactId>-->
-            <!--<version>1.0.1</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>sharding-jdbc</artifactId>
+            <version>1.0.1</version>
+        </dependency>
         <dependency>
             <groupId>com.dangdang</groupId>
             <artifactId>sharding-jdbc-core</artifactId>
@@ -410,6 +410,55 @@
         <!--junit end -->
     </dependencies>
 
+    <!-- <build>
+         <resources>
+             <resource>
+                 <directory>src/main/java</directory>
+                 <includes>
+                     <include>**/*.xml</include>
+                     <include>**/*.properties</include>
+                     <include>*.xml</include>
+                 </includes>
+                <filtering>false</filtering>
+             </resource>
+             <resource>
+                 <directory>src/main/resources</directory>
+                  <includes>
+                      <include>**/*.xml</include>
+                      <include>**/*.properties</include>
+                       <include>*.xml</include>
+                  </includes>
+                 <filtering>false</filtering>
+             </resource>
 
 
+         </resources>
+
+        &lt;!&ndash; <plugins>
+             <plugin>
+                 <artifactId>maven-resources-plugin</artifactId>
+                 <version>2.5</version>
+                 <executions>
+                     <execution>
+                         <id>copy-xmls</id>
+                         <phase>process-sources</phase>
+                         <goals>
+                             <goal>copy-resources</goal>
+                         </goals>
+                         <configuration>
+                             <outputDirectory>${basedir}/target/classes</outputDirectory>
+                             <resources>
+                                 <resource>
+                                     <directory>${basedir}/src/main/java</directory>
+                                     <includes>
+                                         <include>**/*.xml</include>
+                                     </includes>
+                                 </resource>
+                             </resources>
+                         </configuration>
+                     </execution>
+                 </executions>
+             </plugin>
+         </plugins>&ndash;&gt;
+     </build>-->
 </project>
