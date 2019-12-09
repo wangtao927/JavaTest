@@ -40,18 +40,24 @@ public class PooledConnection {
 		this.isBusy = isBusy;
 	}
 
-	// 构造方法 其他的程序调用它的时候 是要创建并且给它初始化组件
+	/**
+	 *  构造方法 其他的程序调用它的时候 是要创建并且给它初始化组件
+ 	 */
 	public PooledConnection(Connection connection, boolean isBusy) {
 		this.connection = connection;
 		this.isBusy = isBusy;
 	}
 
-	// 这个功能也是自定义添加 这个释放说为管道复用来服务
+	/**
+	 * 这个功能也是自定义添加 这个释放说为管道复用来服务
+	 */
 	public void close() {
 		this.isBusy = false;
 	}
 
-	// 给我们自定义的管道一个操作数据库数据功能
+	/**
+	 * 给我们自定义的管道一个操作数据库数据功能
+	 */
 	public ResultSet queryBysql(String sql) {
 		Statement sm = null;
 		ResultSet rs = null;

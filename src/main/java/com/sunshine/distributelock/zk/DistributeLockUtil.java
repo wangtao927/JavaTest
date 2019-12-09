@@ -31,7 +31,12 @@ public class DistributeLockUtil {
 
     }
 
-    public static void releaseLock() {
-
+    public static void releaseLock(String lockKey) {
+        InterProcessMutex lock = new InterProcessMutex(client, basePath + "/" + lockKey);
+        try {
+            lock.release();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

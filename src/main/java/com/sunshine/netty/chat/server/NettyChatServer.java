@@ -14,14 +14,14 @@ public class NettyChatServer {
 
     public void initServer() throws InterruptedException {
 
-        EventLoopGroup bossGroup  = new NioEventLoopGroup();
+        EventLoopGroup bossGroup  = new NioEventLoopGroup(1);
         EventLoopGroup workGroup  = new NioEventLoopGroup();
         try {
             ServerBootstrap server = new ServerBootstrap();
             server.group(bossGroup, workGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new SimpleChatChannelHandler())
-                    .option(ChannelOption.SO_BACKLOG, 128)          // (5)
+                    .option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             ChannelFuture f = server.bind(Constant.SERVER_PORT).sync();

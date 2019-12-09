@@ -10,12 +10,13 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
 
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 //        ctx.fireChannelRead(msg);
         ((ByteBuf) msg).release();
     }
 
-
+    @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 //        ctx.fireExceptionCaught(cause);
         cause.printStackTrace();
