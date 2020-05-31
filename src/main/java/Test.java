@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Future;
 
 /**
  * Created by wangtao on 2016/11/10.
@@ -14,5 +15,7 @@ public class Test {
             list.add(i);
         }
         System.out.println(list.contains(1));
+
+
     }
 }
