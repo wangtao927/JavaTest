@@ -3,15 +3,15 @@ package com.sunshine.cache.local;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import org.apache.commons.collections4.map.HashedMap;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class TestCacheBuilder {
 
-    private static Map<String, User> userMap = new HashedMap<>();
+    private static Map<String, User> userMap = new HashMap<>();
 
     public TestCacheBuilder() {
         initUserMap();
