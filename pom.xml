@@ -34,7 +34,7 @@
         <jedis-spring-support.version>1.1.1</jedis-spring-support.version>
         <mybatis-spring-support.version>1.0.6</mybatis-spring-support.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
-        <mybatis.version>3.3.0</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <mybatis-paginator.version>1.2.15</mybatis-paginator.version>
         <mongo-spring-support.version>1.1.3</mongo-spring-support.version>
         <rabbitmq-support.version>1.0.0-SNAPSHOT</rabbitmq-support.version>
